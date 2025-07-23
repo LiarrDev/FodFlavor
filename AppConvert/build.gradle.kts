@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "com.fod.appconvert"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
@@ -30,7 +30,7 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
-    implementation(project(":FodLite"))
+    api(project(":FodLite"))
     implementation(libs.appcompat)
     implementation(libs.material)
     testImplementation(libs.junit)

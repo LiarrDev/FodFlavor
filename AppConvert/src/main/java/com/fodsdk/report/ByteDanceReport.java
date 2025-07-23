@@ -64,11 +64,10 @@ public class ByteDanceReport implements IReport {
         if (!TextUtils.isEmpty(channel) && channel.contains("_")) {
             String[] split = channel.split("_");
             try {
-                if (split.length >= 4) {    // 格式：adid_cid_ptid_pcid
+                if (split.length >= 3) {    // 格式：adid_cid_ptid
                     FodSDK.get().config.setAdId(split[0]);
                     FodSDK.get().config.setCId(split[1]);
-                    FodSDK.get().config.setPId(split[2]);
-                    FodSDK.get().config.setPcId(split[3]);
+                    FodSDK.get().config.setPtId(split[2]);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -92,11 +91,11 @@ public class ByteDanceReport implements IReport {
     public void onPayEvent(Context context, Map<String, String> map) {
         LogUtil.d("ByteDanceReport onPayEvent");
         ConvertReportHelper.onEventPurchase(
-                "",     // Fixme
+                "default",
                 Objects.requireNonNull(map.get(FodConstants.PAY.GOODS_NAME)),
                 Objects.requireNonNull(map.get(FodConstants.PAY.GOODS_ID)),
                 Integer.parseInt(Objects.requireNonNull(map.get(FodConstants.PAY.GOODS_COUNT))),
-                "wechat",   // Fixme
+                Objects.requireNonNull(map.get(FodConstants.PAY.PAY_TYPE)),
                 "¥",
                 true,
                 Integer.parseInt(Objects.requireNonNull(map.get(FodConstants.PAY.GOODS_PRICE)))
