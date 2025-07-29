@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.fod.appconvert"
+    namespace = "com.csg.zb1"
     compileSdk = 35
 
     defaultConfig {
