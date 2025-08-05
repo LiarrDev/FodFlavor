@@ -98,7 +98,7 @@ public class ByteDanceReport implements IReport {
                 Objects.requireNonNull(map.get(FodConstants.PAY.PAY_TYPE)),
                 "¥",
                 true,
-                Integer.parseInt(Objects.requireNonNull(map.get(FodConstants.PAY.GOODS_PRICE)))
+                Integer.parseInt(Objects.requireNonNull(map.get(FodConstants.PAY.GOODS_PRICE)).replace(".00", ""))
         );
     }
 
